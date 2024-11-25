@@ -9,10 +9,10 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="bg-primary-light text-text-light py-0 font-vietnam">
+    <nav className="bg-primary-light text-text-light py-2 md:py-0 font-vietnam fixed top-0 left-0 right-0">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-2xl font-bold">
-          <div className="flex items-center">
+        <div className="text-lg  md:text-2xl font-bold">
+          <div className="flex items-center ">
             <img
               src={logo}
               alt="Clarity"
@@ -20,7 +20,7 @@ const NavBar = () => {
             />
           </div>
         </div>
-        <ul className="flex space-x-6 font-medium">
+        <ul className="md:flex space-x-6 text-sm md:text-xl hidden">
           {menuItems.map((item, index) => (
             <li key={index}>
               <a href={item.href} className="hover:text-secondary-light">
@@ -29,6 +29,9 @@ const NavBar = () => {
             </li>
           ))}
         </ul>
+        <button className="rounded-xl px-2 py-1 md:px-4 md:py-2 bg-secondary-light text-text-light border-2 border-text-light hover:shadow-md hover:md:shadow-lg hover:bg-text-light hover:text-secondary-light text-md hidden md:block">
+          Connect Wallet
+        </button>
       </div>
     </nav>
   );
