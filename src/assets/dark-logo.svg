@@ -1,0 +1,20 @@
+<svg viewBox="0 0 440 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Dark Mode -->
+    <g transform="translate(240, 20)">
+        <!-- Background Circle - dark mode -->
+        <circle cx="30" cy="30" r="25" fill="none" stroke="#68918A" stroke-width="2"/>
+        
+        <!-- Rising Sun/Horizon - dark mode -->
+        <path d="M15 35 Q30 15 45 35" fill="none" stroke="#68918A" stroke-width="2"/>
+        
+        <!-- Ripple effect - dark mode -->
+        <path d="M10 40 Q30 30 50 40" fill="none" stroke="#68918A" stroke-width="1.5" opacity="0.6"/>
+        <path d="M12 44 Q30 34 48 44" fill="none" stroke="#68918A" stroke-width="1" opacity="0.4"/>
+        
+        <!-- Text - dark mode -->
+        <text x="70" y="38" font-family="Be Vietnam Pro" font-size="28" font-weight="300" fill="#E8ECEF">Clarity</text>
+        
+        <!-- Label -->
+        <text x="70" y="60" font-family="Be Vietnam Pro" font-size="12" fill="#999">Dark Mode</text>
+    </g>
+</svg>
