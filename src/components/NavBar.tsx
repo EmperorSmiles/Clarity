@@ -1,4 +1,5 @@
 import logo from "../assets/logo.svg";
+import Button from "./Button";
 
 const NavBar = () => {
   const menuItems = [
@@ -29,9 +30,7 @@ const NavBar = () => {
             </li>
           ))}
         </ul>
-        <button className="rounded-xl px-2 py-1 md:px-4 md:py-2 bg-teal-600 hover:bg-teal-700 border-2 border-text-light hover:shadow-md hover:md:shadow-lg text-secondary-light text-md hidden md:block transition-colors duration-200">
-          Connect Wallet
-        </button>
+        <Button children="Connect Wallet" styleVariant="nav" />
       </div>
     </nav>
   );
