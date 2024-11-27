@@ -1,5 +1,5 @@
-import sad from "../assets/Health/Sad.jpg";
-import alley from "../assets/Health/Dark Alley.jpg";
+// import sad from "../assets/Health/Sad.jpg";
+// import alley from "../assets/Health/Dark Alley.jpg";
 
 const Body = () => {
   return (
