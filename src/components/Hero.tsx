@@ -102,7 +102,7 @@ const Hero: React.FC<HeroProps> = ({
       <div className="relative h-full flex items-end pt-16">
         <div className="w-full mx-auto px-8">
           <div className="max-w-2xl text-text-dark">
-            <h1 className="text-2xl md:text-5xl font-bold mb-2 md:mb-6 text-white">
+            <h1 className="text-2xl md:text-5xl font-bold mb-2 md:mb-6 ">
               Support Mental Health Today
             </h1>
             <p className="text-sm md:text-xl mb-4 md:mb-8 text-white">
