@@ -10,21 +10,22 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="bg-primary-light text-text-light py-2 md:py-0 font-vietnam fixed top-0 left-0 right-0 z-10">
+    // text-text-light
+    <nav className="bg-primary-light  py-2 md:py-0 font-vietnam fixed top-0 left-0 right-0 z-10 bg-transparent text-text-dark">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-lg  md:text-2xl font-bold">
-          <div className="flex items-center ">
+          <div className="flex items-center  str">
             <img
               src={logo}
               alt="Clarity"
-              className="h-8 md:h-20 w-auto object-contain p-0" // Adjust height as needed
+              className="h-8 md:h-20 w-auto object-contain p-0 " // Adjust height as needed
             />
           </div>
         </div>
         <ul className="md:flex space-x-6 text-sm md:text-xl hidden">
           {menuItems.map((item, index) => (
             <li key={index}>
-              <a href={item.href} className="hover:text-secondary-light">
+              <a href={item.href} className="hover:text-primary-light">
                 {item.label}
               </a>
             </li>
