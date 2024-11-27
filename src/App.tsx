@@ -6,6 +6,7 @@ import heroVideo2 from "./assets/Health/HeroVideo2.mp4";
 import heroImage1 from "./assets/Health/Hero.jpg";
 import heroImage2 from "./assets/Health/Hero2.jpg";
 import videoFallback from "./assets/Health/Hero2.jpg";
+import Body from "./components/Body";
 
 const App: React.FC = () => {
   const mediaItems = [
@@ -37,6 +38,7 @@ const App: React.FC = () => {
           interval={7000}
         />
       </div>
+      <Body />
     </>
   );
 };
