@@ -102,12 +102,14 @@ const Hero: React.FC<HeroProps> = ({
       <div className="relative h-full flex items-end pt-16">
         <div className="w-full mx-auto px-8">
           <div className="max-w-2xl text-text-dark">
-            <h1 className="text-2xl md:text-5xl font-bold mb-2 md:mb-6 ">
-              Support Mental Health Today
+            <h1 className="text-2xl md:text-5xl font-bold mb-2 md:mb-6 capitalize">
+              Illuminate the Minds of Those in Need
             </h1>
             <p className="text-sm md:text-xl mb-4 md:mb-8 text-white">
-              Your contribution can make a difference in someone's life. Join us
-              in making mental health support accessible to everyone.
+              Together, we can break the silence and stigma around{" "}
+              <em className="italic underline text-teal-300 decoration-wavy decoration-2 underline-offset-4 ">
+                Mental Health.
+              </em>
             </p>
             <Button omClick={() => {}} children="Donate Now" />
           </div>
