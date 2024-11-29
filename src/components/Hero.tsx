@@ -100,10 +100,10 @@ const Hero: React.FC<HeroProps> = ({
 
       {/* Content Container */}
       <div className="relative h-full flex items-end pt-16">
-        <div className="w-full mx-auto px-8">
+        <div className="w-full mx-auto px-8 mb-8">
           <div className="max-w-2xl text-text-dark">
             <h1 className="text-2xl md:text-5xl font-bold mb-2 md:mb-6 capitalize">
-              Illuminate the Minds of Those in Need
+              Illuminating minds, hope for tomorrow
             </h1>
             <p className="text-sm md:text-xl mb-4 md:mb-8 text-white">
               Together, we can break the silence and stigma around{" "}
@@ -111,7 +111,7 @@ const Hero: React.FC<HeroProps> = ({
                 Mental Health.
               </em>
             </p>
-            <Button omClick={() => {}} children="Donate Now" />
+            <Button omClick={() => {}} children="Get Involved" />
           </div>
         </div>
       </div>
