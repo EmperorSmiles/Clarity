@@ -8,7 +8,7 @@ const HamburgerIcon = ({ onClick }: HamburgerIconProps) => {
 
   const handleClick = () => {
     setIsOpen(!isOpen);
-    onClick && onClick();
+    onClick?.(); /// Apparently, I can;t use onClick && onClick(); here because of EsLint rules
   };
 
   return (
