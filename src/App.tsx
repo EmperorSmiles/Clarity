@@ -31,7 +31,7 @@ const App: React.FC = () => {
   return (
     <>
       <NavBar />
-      <div className="bg-background-light h-screen flex flex-col justify-center items-center font-vietnam">
+      <div className="bg-background-dark h-screen flex flex-col justify-center items-center font-vietnam">
         <Hero
           mediaItems={mediaItems}
           videoFallbackImage={videoFallback}
