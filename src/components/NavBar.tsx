@@ -46,7 +46,7 @@ const NavBar = () => {
           </div>
         </div>
         <HamburgerIcon />
-        <ul className="md:flex space-x-6 text-sm md:text-xl hidden">
+        <ul className="md:flex space-x-6 text-sm md:text-xl hidden font-medium">
           {menuItems.map((item, index) => (
             <li key={index}>
               <a
