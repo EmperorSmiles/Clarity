@@ -6,16 +6,21 @@ import Hiking from "../assets/Health/Hiking.jpg";
 const About = () => {
   return (
     <>
-      <p className="">
-        Clarity is a beacon of hope for those navigating the complexities of
-        mental health.
-      </p>
-      <p>
-        We're committed to fostering a world where mental wellness is
-        prioritized and accessible to all.
-      </p>
+      <div className="tracking-wide leading-relaxed">
+        <p>
+          Clarity is a beacon of hope for those navigating the complexities of
+          mental health.
+        </p>
+        <p>
+          We're committed to fostering a world where mental wellness is
+          prioritized and accessible to all.
+        </p>
+      </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 ">
+      <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-dark opacity-30 mx-auto w-3/4"></div>
+
+      <h1 className="text-2xl md:text-4xl mb-4 font-semibold">Our Mission</h1>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 py-4">
         <img
           src={sad}
           alt="Sad Man"
@@ -37,7 +42,6 @@ const About = () => {
           className="h-40 w-32 md:h-80 rounded-md md:w-64"
         />
       </div>
-      <h1 className="text-4xl md:text-6xl font-bold mb-4">Our Mission</h1>
     </>
   );
 };
