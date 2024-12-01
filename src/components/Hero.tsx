@@ -39,9 +39,16 @@ const Hero: React.FC<HeroProps> = ({
       if (videoRef) {
         if (index === currentIndex && mediaItems[index].type === "video") {
           videoRef.currentTime = 0;
-          videoRef
-            .play()
-            .catch((error) => console.log("Video play error:", error));
+          const playPromise = videoRef.play();
+
+          if (playPromise !== undefined) {
+            playPromise.catch((error) => {
+              // Only log if it's not an AbortError
+              if (error.name !== "AbortError") {
+                console.log("Video play error:", error);
+              }
+            });
+          }
         } else {
           videoRef.pause();
         }
@@ -102,7 +109,7 @@ const Hero: React.FC<HeroProps> = ({
       <div className="relative h-full flex items-end pt-16">
         <div className="w-full mx-auto px-8 mb-8">
           <div className="max-w-2xl text-text-dark">
-            <h1 className="text-2xl md:text-5xl font-bold mb-2 md:mb-6 capitalize">
+            <h1 className="text-2xl md:text-5xl  mb-2 md:mb-6 capitalize font-semibold">
               Illuminating minds, hope for tomorrow
             </h1>
             <p className="text-sm md:text-xl mb-4 md:mb-8 text-white">
