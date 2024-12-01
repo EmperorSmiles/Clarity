@@ -20,6 +20,18 @@ const About = () => {
       <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-dark opacity-30 mx-auto w-3/4"></div>
 
       <h1 className="text-2xl md:text-4xl mb-4 font-semibold">Our Mission</h1>
+      <p className="text-left">
+        At Clarity, we believe that everyone deserves access to quality mental
+        health support. <br></br> Our mission is to: <br></br>
+        <p>
+          <em className="font-semibold">Destigmatize Mental Illness:</em>{" "}
+          Challenge societal stigma and promote open conversations about mental
+          health.
+        </p>
+        Provide Accessible Resources: Offer a range of resources, including
+        therapy, counseling, and support groups. Fund Research: Support
+        innovative research to advance mental health treatments and prevention.
+      </p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 py-4">
         <img
           src={sad}
