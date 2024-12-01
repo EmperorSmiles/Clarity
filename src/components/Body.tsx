@@ -2,9 +2,10 @@ import About from "./About";
 
 const Body = () => {
   return (
-    <section className="h-full relative font-vietnam ">
+    // bg-background-light dark:bg-background-dark
+    <section className="h-full relative font-vietnam bg-background-light ">
       {" "}
-      <div className="flex flex-col items-center justify-center h-full mt-8 text-text-light text-lg md:text-2xl text-center px-4">
+      <div className="flex flex-col items-center justify-center h-full mt- text-text-light text-lg md:text-2xl text-center pt-8">
         <About />
       </div>
     </section>
