@@ -99,8 +99,23 @@ const About = () => {
         and strengthen the{" "}
         <em className="font-semibold text-teal-600">community</em> of people who
         need mental health support as well as those who look after them.
+        <br /> <br />
+        <p>
+          We're building a{" "}
+          <em className="font-semibold text-teal-600 uppercase">Community!</em>
+        </p>
       </p>
-      <Button children="Donate Now" omClick={() => {}} styleVariant="default" />
+      <Button
+        children="Get Started"
+        omClick={() => {}}
+        styleVariant="default"
+      />
+      <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-dark opacity-30 mx-auto w-3/4"></div>
+
+      <p className=" text-text-light mb-4">
+        Every donation, no matter the size, brings us closer to a brighter
+        future. Let's break the silence and offer hope
+      </p>
     </>
   );
 };
