@@ -3,6 +3,7 @@ import logo from "../assets/logo.svg";
 import darkLogo from "../assets/dark-logo.svg";
 import Button from "./Button";
 import HamburgerIcon from "./Hamburger";
+import { FaRegSun, FaRegMoon } from "react-icons/fa6";
 
 const NavBar = () => {
   const menuItems = [
@@ -13,6 +14,14 @@ const NavBar = () => {
   ];
 
   const [scrolled, setScrolled] = useState(false);
+  // const [clicked, setClicked] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Initialize dark mode from localStorage or system preference
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme
+      ? savedTheme === "dark"
+      : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,17 +30,24 @@ const NavBar = () => {
     };
     window.addEventListener("scroll", handleScroll);
 
+    // Apply theme to document
+    document.documentElement.classList.toggle("dark", isDarkMode);
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isDarkMode]);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   return (
-    // text-text-light
     <nav
       className={`fixed top-0 left-0 right-0 z-10 font-vietnam transition-all duration-300 ease-in-out ${
         scrolled
-          ? "bg-primary-light text-text-light shadow-md py-2 opacity-100"
+          ? "bg-primary-light dark:bg-primary-dark dark:text-text-dark  text-text-light shadow-md py-2 opacity-100"
           : "bg-transparent text-text-dark py-4 opacity-90"
       }`}
     >
@@ -39,13 +55,13 @@ const NavBar = () => {
         <div className="text-lg md:text-2xl font-bold">
           <div className="flex items-center">
             <img
-              src={scrolled ? darkLogo : logo}
+              src={scrolled && !isDarkMode ? darkLogo : logo}
               alt="Logo"
               className="h-10 md:h-20 w-auto object-contain transition-all duration-300 ease-in-out"
             />
           </div>
         </div>
-        <HamburgerIcon />
+
         <ul className="md:flex space-x-6 text-sm md:text-xl hidden font-medium">
           {menuItems.map((item, index) => (
             <li key={index}>
@@ -60,7 +76,19 @@ const NavBar = () => {
             </li>
           ))}
         </ul>
-        <Button children="Connect Wallet" styleVariant="nav" />
+
+        {/* Theme Toggle */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle dark mode"
+            className="ml-4 p-2 rounded-full hover:bg-gray-200 transition-colors"
+          >
+            {isDarkMode ? <FaRegSun size={20} /> : <FaRegMoon size={20} />}
+          </button>
+          <HamburgerIcon />
+          <Button children="Connect Wallet" styleVariant="nav" />
+        </div>
       </div>
     </nav>
   );
