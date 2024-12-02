@@ -7,6 +7,7 @@ import heroImage1 from "./assets/Health/Hero.jpg";
 import heroImage2 from "./assets/Health/Hero2.jpg";
 import videoFallback from "./assets/Health/Hero2.jpg";
 import Body from "./components/Body";
+import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   const mediaItems = [
@@ -39,6 +40,7 @@ const App: React.FC = () => {
         />
       </div>
       <Body />
+      <Footer />
     </>
   );
 };
