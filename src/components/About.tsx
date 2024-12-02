@@ -2,6 +2,7 @@ import sad from "../assets/Health/Sad.jpg";
 import alley from "../assets/Health/Dark Alley.jpg";
 import Yoga from "../assets/Health/Yoga.jpg";
 import Hiking from "../assets/Health/Hiking.jpg";
+import Button from "./Button";
 
 const About = () => {
   return (
@@ -30,18 +31,23 @@ const About = () => {
         <br />
         <ul className="list-disc list-inside">
           <li>
-            <em className="font-semibold">Destigmatize Mental Illness:</em>{" "}
+            <em className="font-semibold text-teal-600">
+              Destigmatize Mental Illness:
+            </em>{" "}
             Challenge societal stigma and promote open conversations about
             mental health.
           </li>
           <li>
-            <em className="font-semibold">Provide Accessible Resources:</em>{" "}
+            <em className="font-semibold text-teal-600">
+              Provide Accessible Resources:
+            </em>{" "}
             Offer a range of resources, including therapy, counseling, and
             support groups.
           </li>
           <li>
-            <em className="font-semibold">Fund Research:</em> Support innovative
-            research to advance mental health treatments and prevention.
+            <em className="font-semibold text-teal-600">Fund Research:</em>{" "}
+            Support innovative research to advance mental health treatments and
+            prevention.
           </li>
         </ul>
       </p>
@@ -76,13 +82,24 @@ const About = () => {
       <h2 className="text-2xl md:text-4xl mb-4 font-semibold text-text-light">
         Your Impact Matters{" "}
       </h2>
-      <p className="text-text-light">
-        Your generous donation will help us provide affordable therapy sessions
-        for beneficiaries, fund crisis hotlines, support research to improve
-        mental health treatments, promote awareness, fight stigmatization and
-        strengthen the community of people who need mental health support and
-        those who care for them.
+      <p className="text-text-light mb-8">
+        Your generous donation will help us provide{" "}
+        <em className="font-semibold text-teal-600">
+          affordable therapy sessions
+        </em>{" "}
+        for beneficiaries, fund{" "}
+        <em className="font-semibold text-teal-600">crisis hotlines</em>,
+        support{" "}
+        <em className="font-semibold text-teal-600">
+          research to improve mental health treatments and their effectiveness
+        </em>
+        , promote <em className="font-semibold text-teal-600">awareness</em>,
+        fight <em className="font-semibold text-teal-600">stigmatization</em>{" "}
+        and strengthen the{" "}
+        <em className="font-semibold text-teal-600">community</em> of people who
+        need mental health support as well as those who look after them.
       </p>
+      <Button children="Donate Now" omClick={() => {}} styleVariant="default" />
     </>
   );
 };
