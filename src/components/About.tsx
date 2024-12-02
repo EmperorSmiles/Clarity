@@ -23,7 +23,7 @@ const About = () => {
       <h1 className="text-2xl md:text-4xl mb-4 font-semibold text-text-light">
         Our Mission
       </h1>
-      <p className="text-left tracking-wide px-2 md:px-4 text-text-light">
+      <p className="text-left tracking-wide text-text-light">
         At Clarity, we believe that everyone deserves access to quality mental
         health support.
         <br />
