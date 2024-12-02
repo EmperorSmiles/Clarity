@@ -90,7 +90,7 @@ const Footer = () => {
               name="email"
               id=""
               placeholder="Enter Your Email"
-              className="bg-transparent border-2 border-text-light w-48 h-9 p-3 focus:border-text-light placeholder-text-light placeholder-opacity-50"
+              className="bg-transparent border-2 border-teal-600 w-48 h-9 p-3 focus:border-teal-600 placeholder-text-light placeholder-opacity-50"
             />
             <button
               type="button"
