@@ -6,7 +6,7 @@ import Hiking from "../assets/Health/Hiking.jpg";
 const About = () => {
   return (
     <>
-      <div className="tracking-wide leading-relaxed">
+      <div className="tracking-wide leading-relaxed text-text-light">
         <p>
           Clarity is a beacon of hope for those navigating the complexities of
           mental health.
@@ -19,8 +19,10 @@ const About = () => {
 
       <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-dark opacity-30 mx-auto w-3/4"></div>
 
-      <h1 className="text-2xl md:text-4xl mb-4 font-semibold">Our Mission</h1>
-      <p className="text-left tracking-wide px-2 md:px-4">
+      <h1 className="text-2xl md:text-4xl mb-4 font-semibold text-text-light">
+        Our Mission
+      </h1>
+      <p className="text-left tracking-wide px-2 md:px-4 text-text-light">
         At Clarity, we believe that everyone deserves access to quality mental
         health support.
         <br />
@@ -46,7 +48,7 @@ const About = () => {
 
       <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-dark opacity-30 mx-auto w-3/4"></div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4  py-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 py-4">
         <img
           src={sad}
           alt="Sad Man"
@@ -70,6 +72,17 @@ const About = () => {
       </div>
 
       <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-dark opacity-30 mx-auto w-3/4"></div>
+
+      <h2 className="text-2xl md:text-4xl mb-4 font-semibold text-text-light">
+        Your Impact Matters{" "}
+      </h2>
+      <p className="text-text-light">
+        Your generous donation will help us provide affordable therapy sessions
+        for beneficiaries, fund crisis hotlines, support research to improve
+        mental health treatments, promote awareness, fight stigmatization and
+        strengthen the community of people who need mental health support and
+        those who care for them.
+      </p>
     </>
   );
 };
