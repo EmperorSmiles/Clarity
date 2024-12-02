@@ -43,7 +43,10 @@ const About = () => {
           </li>
         </ul>
       </p>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 py-4">
+
+      <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-dark opacity-30 mx-auto w-3/4"></div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4  py-4">
         <img
           src={sad}
           alt="Sad Man"
@@ -65,6 +68,8 @@ const About = () => {
           className="h-40 w-32 md:h-80 rounded-md md:w-64"
         />
       </div>
+
+      <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-dark opacity-30 mx-auto w-3/4"></div>
     </>
   );
 };
