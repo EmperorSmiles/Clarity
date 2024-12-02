@@ -7,7 +7,7 @@ import Button from "./Button";
 const About = () => {
   return (
     <>
-      <div className="tracking-wide leading-relaxed text-text-light">
+      <div className="tracking-wide leading-relaxed text-text-light dark:text-text-dark/80">
         <p>
           Clarity is a beacon of hope for those navigating the complexities of
           mental health.
@@ -18,12 +18,12 @@ const About = () => {
         </p>
       </div>
 
-      <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-dark opacity-30 mx-auto w-3/4"></div>
+      <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-light opacity-30 mx-auto w-3/4"></div>
 
-      <h1 className="text-2xl md:text-4xl mb-4 font-semibold text-text-light">
+      <h1 className="text-2xl md:text-4xl mb-4 font-semibold text-text-light dark:text-text-dark/80">
         Our Mission
       </h1>
-      <div className="text-left tracking-wide text-text-light">
+      <div className="text-left tracking-wide text-text-light dark:text-text-dark/80">
         <p>
           At Clarity, we believe that everyone deserves access to quality mental
           health support.
@@ -53,7 +53,7 @@ const About = () => {
         </ul>
       </div>
 
-      <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-dark opacity-30 mx-auto w-3/4"></div>
+      <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-light opacity-30 mx-auto w-3/4"></div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 py-4">
         <img
@@ -78,12 +78,12 @@ const About = () => {
         />
       </div>
 
-      <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-dark opacity-30 mx-auto w-3/4"></div>
+      <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-light opacity-30 mx-auto w-3/4"></div>
 
-      <h2 className="text-2xl md:text-4xl mb-4 font-semibold text-text-light">
+      <h2 className="text-2xl md:text-4xl mb-4 font-semibold text-text-light dark:text-text-dark/80">
         Your Impact Matters{" "}
       </h2>
-      <p className="text-text-light mb-8">
+      <p className="text-text-light dark:text-text-dark/80 mb-8">
         Your generous donation will help us provide{" "}
         <em className="font-semibold text-teal-600">
           affordable therapy sessions
@@ -110,9 +110,9 @@ const About = () => {
         omClick={() => {}}
         styleVariant="default"
       />
-      <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-dark opacity-30 mx-auto w-3/4"></div>
+      <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-light opacity-30 mx-auto w-3/4"></div>
 
-      <p className=" text-text-light mb-4">
+      <p className=" text-text-light dark:text-text-dark/80 mb-4">
         Every donation, no matter the size, brings us closer to a brighter
         future. Let's break the silence and offer hope
       </p>
