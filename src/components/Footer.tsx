@@ -1,6 +1,48 @@
-import React from "react";
+import { FaXTwitter, FaMedium } from "react-icons/fa6";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaYoutube,
+  FaMailBulk,
+} from "react-icons/fa";
 
 const Footer = () => {
+  const social = [
+    {
+      name: "Instagram",
+      icon: <FaInstagram />,
+      spacing: "mb-4",
+      url: "https://www.instagram.com",
+    },
+    {
+      name: "X (formerly Twitter)",
+      icon: <FaXTwitter />,
+      spacing: "mb-4",
+      url: "https://www.twitter.com",
+    },
+    {
+      name: "Facebook",
+      icon: <FaFacebookF />,
+      spacing: "mb-4",
+      url: "https://www.facebook.com",
+    },
+    {
+      name: "Youtube",
+      icon: <FaYoutube />,
+      url: "https://youtube.com",
+    },
+    {
+      name: "Medium",
+      icon: <FaMedium />,
+      url: "https://medium.com",
+    },
+    {
+      name: "Email",
+      icon: <FaMailBulk />,
+      url: "https://medium.com",
+    },
+  ];
+
   return (
     <footer className="bg-primary-light font-vietnam">
       <div className="md:grid md:grid-cols-2 lg:flex justify-between p-8 lg:p-8 text-text-light">
@@ -19,12 +61,24 @@ const Footer = () => {
           <li className="pb-1">Productivity Methods</li>
           <li className="pb-1">Mindfulness </li>
         </ul>
-        {/* <ul className="mb-4">
-          <li className="font-bold pb-1 text-black">FEATURES</li>
-          <li className="pb-1">About Us</li>
-          <li className="pb-1">For Teams</li>
-          <li className="pb-1">Template</li>
-        </ul> */}
+        <div>
+          <p className="text-text-light font-bold pb-2">KEEP IN TOUCH</p>
+          <div className=" flex flex-wrap gap-2">
+            {social.map((social, idx) => (
+              <a
+                href={social.url}
+                target="_blank"
+                title={social.name}
+                aria-label={social.name}
+                key={idx}
+                className={`${social.spacing} border-2 rounded-full border-text-light text-text-light hover:bg-teal-500
+                hover:text-text-light hover:border-text-light p-2 flex items-center justify-center w-10 h-10`}
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+        </div>
         <div className="pr-1">
           <h1 className="text-text-light font-bold">
             SUBSCRIBE TO OUR NEWSLETTER
@@ -36,7 +90,7 @@ const Footer = () => {
               name="email"
               id=""
               placeholder="Enter Your Email"
-              className="bg-transparent border-2 border-teal-600 w-48 h-9 p-3 focus:border-teal-600 placeholder-text-light placeholder-opacity-50"
+              className="bg-transparent border-2 border-text-light w-48 h-9 p-3 focus:border-text-light placeholder-text-light placeholder-opacity-50"
             />
             <button
               type="button"
