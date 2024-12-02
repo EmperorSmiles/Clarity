@@ -103,7 +103,7 @@ const Hero: React.FC<HeroProps> = ({
       />
 
       {/* Regular Overlay */}
-      <div className="absolute inset-0 bg-black/40 " />
+      <div className="absolute inset-0 dark:bg-black/80 bg-black/40 " />
 
       {/* Content Container */}
       <div className="relative h-full flex items-end pt-16">
