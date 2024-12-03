@@ -3,7 +3,8 @@ import logo from "../assets/logo.svg";
 import darkLogo from "../assets/dark-logo.svg";
 import Button from "./Button";
 import HamburgerIcon from "./Hamburger";
-import { FaRegSun, FaRegMoon } from "react-icons/fa6";
+import { FaRegMoon } from "react-icons/fa6";
+import { IoSunnyOutline } from "react-icons/io5";
 
 const NavBar = () => {
   const menuItems = [
@@ -68,7 +69,9 @@ const NavBar = () => {
               <a
                 href={item.href}
                 className={`${
-                  scrolled ? "hover:text-text-dark" : "hover:text-primary-light"
+                  scrolled
+                    ? "hover:text-text-dark dark:hover:text-text-light "
+                    : "hover:text-[#1c9977] text-[#] "
                 }`}
               >
                 {item.label}
@@ -82,9 +85,13 @@ const NavBar = () => {
           <button
             onClick={toggleTheme}
             aria-label="Toggle dark mode"
-            className="ml-4 p-2 rounded-full hover:bg-gray-200 transition-colors"
+            className="ml-4 p-2 rounded-full transition-all duration-1000 ease-in-out"
           >
-            {isDarkMode ? <FaRegSun size={20} /> : <FaRegMoon size={20} />}
+            {isDarkMode ? (
+              <IoSunnyOutline size={30} />
+            ) : (
+              <FaRegMoon size={30} />
+            )}
           </button>
           <HamburgerIcon />
           <Button children="Connect Wallet" styleVariant="nav" />
