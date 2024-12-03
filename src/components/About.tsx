@@ -7,7 +7,7 @@ import Button from "./Button";
 const About = () => {
   return (
     <>
-      <div className="tracking-wide leading-relaxed text-text-light dark:text-text-dark/80">
+      <div className="tracking-wide leading-relaxed text-text-light dark:text-text-dark/80 transition all duration-1000 ease-in-out">
         <p>
           Clarity is a beacon of hope for those navigating the complexities of
           mental health.
@@ -20,10 +20,10 @@ const About = () => {
 
       <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-light opacity-30 mx-auto w-3/4"></div>
 
-      <h1 className="text-2xl md:text-4xl mb-4 font-semibold text-text-light dark:text-text-dark/80">
+      <h1 className="text-2xl md:text-4xl mb-4 font-semibold text-text-light dark:text-text-dark/80 transition all duration-1000 ease-in-out">
         Our Mission
       </h1>
-      <div className="text-left tracking-wide text-text-light dark:text-text-dark/80">
+      <div className="text-left tracking-wide text-text-light dark:text-text-dark/80 transition all duration-1000 ease-in-out">
         <p>
           At Clarity, we believe that everyone deserves access to quality mental
           health support.
@@ -80,10 +80,10 @@ const About = () => {
 
       <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-light opacity-30 mx-auto w-3/4"></div>
 
-      <h2 className="text-2xl md:text-4xl mb-4 font-semibold text-text-light dark:text-text-dark/80">
+      <h2 className="text-2xl md:text-4xl mb-4 font-semibold text-text-light dark:text-text-dark/80 transition all duration-1000 ease-in-out">
         Your Impact Matters{" "}
       </h2>
-      <p className="text-text-light dark:text-text-dark/80 mb-8">
+      <p className="text-text-light dark:text-text-dark/80 mb-8 transition all duration-1000 ease-in-out">
         Your generous donation will help us provide{" "}
         <em className="font-semibold text-teal-600">
           affordable therapy sessions
@@ -112,7 +112,7 @@ const About = () => {
       />
       <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-light opacity-30 mx-auto w-3/4"></div>
 
-      <p className=" text-text-light dark:text-text-dark/80 mb-4">
+      <p className=" text-text-light dark:text-text-dark/80 mb-4 transition all duration-1000 ease-in-out">
         Every donation, no matter the size, brings us closer to a brighter
         future. Let's break the silence and offer hope
       </p>
