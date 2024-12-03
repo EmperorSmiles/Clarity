@@ -39,14 +39,15 @@ const Footer = () => {
     {
       name: "Email",
       icon: <FaMailBulk />,
+      spacing: "mb-4",
       url: "https://medium.com",
     },
   ];
 
   return (
-    <footer className="bg-primary-light font-vietnam">
+    <footer className="bg-primary-light dark:bg-background-dark/90  font-vietnam transition-all duration-500 ease-in-out ">
       <div className="md:grid md:grid-cols-2 lg:flex justify-between p-8 lg:p-8 text-text-light">
-        <ul className="mb-4">
+        <ul className="mb-4 dark:text-text-dark/80">
           <li className="font-bold pb-1 ">COMPANY</li>
           <li className="pb-1">About Us</li>
           {/* <li className="pb-1">About Us</li> */}
@@ -54,7 +55,7 @@ const Footer = () => {
           <li className="pb-1">Blog</li>
           <li className="pb-1">Terms of Service</li>
         </ul>
-        <ul className="mb-4">
+        <ul className="mb-4 dark:text-text-dark/80">
           <li className="font-bold pb-1">RESOURCES</li>
           <li className="pb-1">Download Apps</li>
           <li className="pb-1">Help Center</li>
@@ -62,8 +63,10 @@ const Footer = () => {
           <li className="pb-1">Mindfulness </li>
         </ul>
         <div>
-          <p className="text-text-light font-bold pb-2">KEEP IN TOUCH</p>
-          <div className=" flex flex-wrap gap-2">
+          <p className="text-text-light font-bold pb-2 dark:text-text-dark/80">
+            KEEP IN TOUCH
+          </p>
+          <div className=" flex flex-wrap gap-2 dark:text-text-dark/80">
             {social.map((social, idx) => (
               <a
                 href={social.url}
@@ -71,16 +74,16 @@ const Footer = () => {
                 title={social.name}
                 aria-label={social.name}
                 key={idx}
-                className={`${social.spacing} border-2 rounded-full border-text-light text-text-light hover:bg-teal-500
-                hover:text-text-light hover:border-text-light p-2 flex items-center justify-center w-10 h-10`}
+                className={`${social.spacing} border-2 rounded-full border-text-light dark:border-text-dark/80 dark:hover:text-text-light text-text-light hover:bg-teal-500 
+                hover:text-text-light hover:border-text-light p-2 flex items-center justify-center w-10 h-10 dark:text-text-dark/80`}
               >
                 {social.icon}
               </a>
             ))}
           </div>
         </div>
-        <div className="pr-1">
-          <h1 className="text-text-light font-bold">
+        <div className="pr-1 dark:text-text-dark/80">
+          <h1 className="text-text-light font-bold dark:text-text-dark/80">
             SUBSCRIBE TO OUR NEWSLETTER
           </h1>
           <p>Latest news updates sent to your inbox</p>
@@ -90,7 +93,7 @@ const Footer = () => {
               name="email"
               id=""
               placeholder="Enter Your Email"
-              className="bg-transparent border-2 border-teal-600 w-48 h-9 p-3 focus:border-teal-600 placeholder-text-light placeholder-opacity-50"
+              className="bg-transparent border-2 border-teal-600 w-48 h-9 p-3 focus:border-teal-600 placeholder-text-light placeholder-opacity-50 dark:placeholder-text-dark/60 "
             />
             <button
               type="button"
@@ -101,8 +104,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="bg-background-light  text-center py-10 text-xs lg:text-sm">
-        Intellivest &copy; 2024, All rights reserved by
+      <div className="bg-primary-light dark:bg-background-dark/90 text-text-light transition-all duration-500 ease-in-out text-center py-10 text-xs lg:text-sm dark:text-text-dark/80">
+        Clarity &copy; 2024, All rights reserved by
         <a
           className="underline ml-2"
           href={"https://github.com/EmperorSmiles"}
@@ -114,61 +117,5 @@ const Footer = () => {
     </footer>
   );
 };
-
-// export default function Footer() {
-//   return (
-//     <div className="bg-gray-100 h-full flex flex-col">
-//       <div className="md:grid md:grid-cols-2 lg:flex justify-between p-8 lg:p-8 text-gray-700">
-//         <ul className="mb-4">
-//           <li className="font-bold pb-1 text-black">FEATURES</li>
-//           <li className="pb-1">How it Works</li>
-//           <li className="pb-1">For Teams</li>
-//           <li className="pb-1">Template</li>
-//         </ul>
-//         <ul className="mb-4">
-//           <li className="font-bold pb-1 text-black">COMPANY</li>
-//           <li className="pb-1">About Us</li>
-//           <li className="pb-1">Careers</li>
-//           <li className="pb-1">Blog</li>
-//         </ul>
-//         <ul className="mb-4">
-//           <li className="font-bold pb-1 text-black">RESOURCES</li>
-//           <li className="pb-1">Download Apps</li>
-//           <li className="pb-1">Help Center</li>
-//           <li className="pb-1">Productivity Methods</li>
-//         </ul>
-//         <div className="pr-1">
-//           <h1 className="text-black font-bold">SUBSCRIBE TO OUR NEWSLETTER</h1>
-//           <p>Latest news updates sent to your inbox</p>
-//           <div className="flex mt-4">
-//             <input
-//               type="email"
-//               name="email"
-//               id=""
-//               placeholder="Enter Your Email"
-//               className="bg-transparent border-2 border-gray-800 w-48 h-9 p-3 focus:border-gray-800"
-//             />
-//             <button
-//               type="button"
-//               className="bg-gray-800 w-32 py-1.5 h text-white text-xs lg:text-sm"
-//             >
-//               Subscribe
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//       <div className="bg-slate-200 text-center py-10 text-xs lg:text-sm">
-//         Intellivest &copy; 2024, All rights reserved by
-//         <Link
-//           className="underline ml-2"
-//           href={"https://github.com/EmperorSmiles"}
-//           target="blank"
-//         >
-//           Adejoh Favour Smiles
-//         </Link>
-//       </div>
-//     </div>
-//   );
-// }
 
 export default Footer;
