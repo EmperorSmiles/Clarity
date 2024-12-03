@@ -10,7 +10,7 @@ export default {
       colors: {
         primary: {
           light: "#86B1A1",
-          dark: "#68918A",
+          dark: "#1c9977",
         },
         secondary: {
           light: "#C7DAD4",
@@ -18,7 +18,8 @@ export default {
         },
         background: {
           light: "#F8F9FA",
-          dark: "#1A1F25",
+          // dark: "#1A1F25",
+          dark: "#121519",
         },
         text: {
           light: "#2C3E50",
