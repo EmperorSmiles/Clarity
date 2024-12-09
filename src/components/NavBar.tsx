@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import darkLogo from "../assets/dark-logo.svg";
 import Button from "./Button";
@@ -8,16 +9,14 @@ import { IoSunnyOutline } from "react-icons/io5";
 
 const NavBar = () => {
   const menuItems = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/#about" },
+    { label: "Donate", href: "/donate" },
+    { label: "Contact", href: "/#contact" },
   ];
 
   const [scrolled, setScrolled] = useState(false);
-  // const [clicked, setClicked] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Initialize dark mode from localStorage or system preference
     const savedTheme = localStorage.getItem("theme");
     return savedTheme
       ? savedTheme === "dark"
@@ -31,7 +30,6 @@ const NavBar = () => {
     };
     window.addEventListener("scroll", handleScroll);
 
-    // Apply theme to document
     document.documentElement.classList.toggle("dark", isDarkMode);
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
 
@@ -55,19 +53,21 @@ const NavBar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-lg md:text-2xl font-bold">
           <div className="flex items-center">
-            <img
-              src={scrolled && !isDarkMode ? darkLogo : logo}
-              alt="Logo"
-              className="h-10 md:h-20 w-auto object-contain transition-all duration-300 ease-in-out"
-            />
+            <Link to="/">
+              <img
+                src={scrolled && !isDarkMode ? darkLogo : logo}
+                alt="Logo"
+                className="h-10 md:h-20 w-auto object-contain transition-all duration-300 ease-in-out"
+              />
+            </Link>
           </div>
         </div>
 
         <ul className="md:flex space-x-6 text-sm md:text-xl hidden font-medium">
           {menuItems.map((item, index) => (
             <li key={index}>
-              <a
-                href={item.href}
+              <Link
+                to={item.href}
                 className={`${
                   scrolled
                     ? "hover:text-text-dark dark:hover:text-text-light "
@@ -75,12 +75,11 @@ const NavBar = () => {
                 }`}
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
-        {/* Theme Toggle */}
         <div className="flex items-center gap-2">
           <button
             onClick={toggleTheme}
