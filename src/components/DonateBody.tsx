@@ -1,9 +1,7 @@
-import React from "react";
-
 const DonateBody = () => {
   return (
     <div>
-      <div className="items-center justify-center h-full text-text-light text-center text-lg md:text-2xl">
+      <div className=" h-full text-text-light dark:text-text-dark text-center text-lg md:text-2xl py-8 px-4 bg-background-light dark:bg-background-dark">
         <h2 className="text-2xl md:text-4xl mb-4 font-semibold">
           Every Contribution Matters
         </h2>
