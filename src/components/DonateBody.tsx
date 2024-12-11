@@ -1,7 +1,7 @@
 const DonateBody = () => {
   return (
-    <div>
-      <div className=" h-full text-text-light dark:text-text-dark text-center text-lg md:text-2xl py-8 px-4 bg-background-light dark:bg-background-dark">
+    <div className="">
+      <div className=" h-full text-text-light dark:text-text-dark text-center text-lg md:text-2xl py-8 px-4 bg-background-light dark:bg-background-dark transition-colors duration-1000 ease-in-out">
         <h2 className="text-2xl md:text-4xl mb-4 font-semibold">
           Every Contribution Matters
         </h2>
