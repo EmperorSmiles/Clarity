@@ -4,7 +4,7 @@ import DonateBody from "../components/DonateBody";
 
 const DonatePage: React.FC = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
       <DonateHero />
       <DonateBody />
     </div>
