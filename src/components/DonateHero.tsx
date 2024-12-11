@@ -12,7 +12,7 @@ const DonateHero = () => {
           className="w-full h-full object-cover"
         />
         {/* Dark overlay to improve text readability */}
-        <div className="absolute h-full inset-0 bg-black opacity-50 z-10"></div>
+        <div className="absolute h-full inset-0 dark:bg-black/80 bg-black/40 transition all duration-1000 ease-in-out z-10"></div>
       </div>
 
       {/* Content Container */}
