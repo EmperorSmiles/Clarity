@@ -11,7 +11,7 @@ const DonateBody = () => {
         <h2 className="text-xl md:text-2xl mb-4 font-semibold">
           How to contribute
         </h2>
-        <ul className="list-disc list-inside">
+        <ul className="list-disc list-inside ">
           <li>
             <em className="text-teal-400">Step 1:</em> Connect your Wallet
           </li>
@@ -32,7 +32,7 @@ const DonateBody = () => {
           </li>
           <p className="mt-2 text-sm">
             We are transparent with all donations received hence the reason why
-            we use Crypto
+            all donations are made in Crypto (Sepolia ETH).
           </p>
         </ul>
 
