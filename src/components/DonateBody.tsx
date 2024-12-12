@@ -1,7 +1,7 @@
 const DonateBody = () => {
   return (
     <div className="">
-      <div className=" h-full text-text-light dark:text-text-dark text-center text-lg md:text-2xl py-8 px-4 bg-background-light dark:bg-background-dark transition-colors duration-1000 ease-in-out">
+      <div className=" h-full text-text-light dark:text-text-dark text-center text-lg md:text-xl py-8 px-4 bg-background-light dark:bg-background-dark transition-colors duration-1000 ease-in-out">
         <h2 className="text-2xl md:text-4xl mb-4 font-semibold">
           Every Contribution Matters
         </h2>
@@ -30,7 +30,7 @@ const DonateBody = () => {
             <em className="text-teal-400">Optional:</em> You can check the total
             balance of the contract using the See Balance button.
           </li>
-          <p>
+          <p className="mt-2 text-sm">
             We are transparent with all donations received hence the reason why
             we use Crypto
           </p>
