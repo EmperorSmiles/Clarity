@@ -12,14 +12,14 @@ const DonateHero = () => {
           className="w-full h-full object-cover"
         />
         {/* Dark overlay to improve text readability */}
-        <div className="absolute h-full inset-0 dark:bg-black/80 bg-black/40 transition all duration-1000 ease-in-out z-10"></div>
+        <div className="absolute h-full inset-0 dark:bg-black/80 bg-black/50 transition all duration-1000 ease-in-out z-10"></div>
       </div>
 
       {/* Content Container */}
       <div className="relative z-15 flex flex-col items-center justify-center h-full text-white text-center px-4 py-8">
         <h1 className="text-3xl md:text-4xl mt-16 md:mt-32 font-bold mb-6">
           With you, we can{" "}
-          <em className="text-teal-300 decoration-wavy decoration-2 underline-offset-4">
+          <em className="italic underline text-teal-300 decoration-wavy decoration-2 underline-offset-4">
             illuminate
           </em>{" "}
           the way.
