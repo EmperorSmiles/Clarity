@@ -18,11 +18,15 @@ const DonateHero = () => {
       {/* Content Container */}
       <div className="relative z-15 flex flex-col items-center justify-center h-full text-white text-center px-4 py-8">
         <h1 className="text-3xl md:text-4xl mt-16 md:mt-32 font-bold mb-6">
-          With you, we can illuminate the way.
+          With you, we can{" "}
+          <em className="ext-teal-300 decoration-wavy decoration-2 underline-offset-4">
+            illuminate
+          </em>{" "}
+          the way.
         </h1>
         <p className="max-w-2xl text-lg md:text-xl">
           Every donation, no matter the size, brings us closer to a brighter
-          future. Your support empowers us to:
+          future. You're making a difference.
         </p>
       </div>
       {/* <Button children={"Donate"} omClick={() => {}} /> */}
