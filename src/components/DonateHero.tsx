@@ -19,7 +19,7 @@ const DonateHero = () => {
       <div className="relative z-15 flex flex-col items-center justify-center h-full text-white text-center px-4 py-8">
         <h1 className="text-3xl md:text-4xl mt-16 md:mt-32 font-bold mb-6">
           With you, we can{" "}
-          <em className="ext-teal-300 decoration-wavy decoration-2 underline-offset-4">
+          <em className="text-teal-300 decoration-wavy decoration-2 underline-offset-4">
             illuminate
           </em>{" "}
           the way.
