@@ -7,23 +7,25 @@ const DonateBody = () => {
         </h2>
         <p>Mental health isn't a luxury—it's a fundamental human right.</p>
         <br />
-        {/* <br /> */}
+
+        <div className="my-2 md:my-4 h-0.5 bg-secondary-dark dark:bg-secondary-light opacity-30 mx-auto w-3/4"></div>
+
         <h2 className="text-xl md:text-2xl mb-2 md:mb-4 font-semibold">
           How to contribute
         </h2>
         <ul className="list-disc list-inside  ">
           <li>
-            <em className="text-teal-400">Step 1:</em> Connect your Wallet
+            <em className="text-teal-600">Step 1:</em> Connect your Wallet
             <ul className="text-base pl-8">
               <li>We recommend using a separate account for this</li>
             </ul>
           </li>
           <li>
-            <em className="text-teal-400">Step 2:</em> Enter your donation
+            <em className="text-teal-600">Step 2:</em> Enter your donation
             amount. Sepolia ETH
           </li>
           <li>
-            <em className="text-teal-400">Step 3:</em> Confirm the transaction
+            <em className="text-teal-600 ">Step 3:</em> Confirm the transaction
             <ul className="text-base pl-8">
               <li>
                 {/* <em className="text-teal-400">Optional:</em> */}
@@ -36,6 +38,8 @@ const DonateBody = () => {
               </li>
             </ul>
           </li>
+
+          <div className="my-2 md:my-4 h-0.5 bg-secondary-dark dark:bg-secondary-light opacity-30 mx-auto w-3/4"></div>
 
           <p className="mt-2 text-base">
             We are transparent with all donations received hence the reason why
