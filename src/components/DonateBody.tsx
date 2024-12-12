@@ -8,7 +8,39 @@ const DonateBody = () => {
         <p>Mental health isn't a luxury—it's a fundamental human right.</p>
         <br />
         {/* <br /> */}
-        <h2>How to contribute</h2>
+        <h2 className="text-xl md:text-2xl mb-4 font-semibold">
+          How to contribute
+        </h2>
+        <ul className="list-disc list-inside">
+          <li>
+            <em className="text-teal-400">Step 1:</em> Connect your Wallet
+          </li>
+          <li>
+            <em className="text-teal-400">Step 2:</em> Enter your donation
+            amount. Sepolia ETH
+          </li>
+          <li>
+            <em className="text-teal-400">Step 3:</em> Confirm the transaction
+          </li>
+          <li>
+            <em className="text-teal-400">Optional:</em> You can choose to also
+            see the transaction on Etherscan
+          </li>
+          <li>
+            <em className="text-teal-400">Optional:</em> You can check the total
+            balance of the contract using the See Balance button.
+          </li>
+          <p>
+            We are transparent with all donations received hence the reason why
+            we use Crypto
+          </p>
+        </ul>
+
+        {/* <p>
+          Please note that all transactions are routed to you wallet and we do
+          not have access to your private keys. Feel free to use a different
+          wallet if you wish
+        </p> */}
         {/* <p>- Break the silence surrounding mental health</p>{" "}
         <p>- Access professional counseling services</p>
         <p>- Support community mental wellness programs</p>
