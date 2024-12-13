@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 const DonateBody = () => {
   return (
     <div className="">
@@ -46,6 +48,31 @@ const DonateBody = () => {
             all donations are made in Crypto (Sepolia ETH).
           </p>
         </ul>
+
+        <section className="flex flex-col justify-center items-center">
+          <Button omClick={() => {}}>Connect Wallet</Button>
+          <div className="my-4 flex gap-3">
+            <label
+            // for="ethAmount"
+            >
+              ETH Amount
+            </label>
+            <input
+              id="ethAmount"
+              placeholder="0.1"
+              className="border-2 border-text-light dark:border-text-dark rounded-md pl-2 placeholder:text-text-light dark:placeholder:text-text-light text-text-light dark:text-text-dark"
+            />
+          </div>
+          <Button
+          // type="button"
+          // id="fundButton"
+          >
+            {" "}
+            Fund{" "}
+          </Button>
+
+          <Button omClick={() => {}}>See Balance</Button>
+        </section>
 
         {/* <p>
           Please note that all transactions are routed to you wallet and we do
