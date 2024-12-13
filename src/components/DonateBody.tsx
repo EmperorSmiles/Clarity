@@ -49,27 +49,25 @@ const DonateBody = () => {
           </p>
         </ul>
 
-        <section className="flex flex-col justify-center items-center">
+        <section className="flex flex-col gap-4 justify-center items-center py-4">
           <Button omClick={() => {}}>Connect Wallet</Button>
-          <div className="my-4 flex gap-3">
-            <label
+          <label
             // for="ethAmount"
-            >
-              ETH Amount
-            </label>
+            className="items-center justify-center"
+          >
+            ETH Amount
+          </label>
+
+          <div className="flex my-4 gap-1 ">
             <input
               id="ethAmount"
               placeholder="0.1"
-              className="border-2 border-text-light dark:border-text-dark rounded-md pl-2 placeholder-text-light placeholder-opacity-50 dark:placeholder-text-dark/60"
+              className="bg-transparent border-2 border-teal-600 w-48 h-9 p-3 focus:border-teal-600 placeholder-text-light placeholder-opacity-50 dark:placeholder-text-dark/60 rounded-md"
             />
+            <Button className="bg-teal-600 hover:bg-teal-700 w-32 h-9 px-2 py-0 text-white flex items-center justify-center">
+              Fund
+            </Button>
           </div>
-          <Button
-          // type="button"
-          // id="fundButton"
-          >
-            {" "}
-            Fund{" "}
-          </Button>
 
           <Button omClick={() => {}}>See Balance</Button>
         </section>
