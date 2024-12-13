@@ -60,7 +60,7 @@ const DonateBody = () => {
             <input
               id="ethAmount"
               placeholder="0.1"
-              className="border-2 border-text-light dark:border-text-dark rounded-md pl-2 placeholder:text-text-light dark:placeholder:text-text-light text-text-light dark:text-text-dark"
+              className="border-2 border-text-light dark:border-text-dark rounded-md pl-2 placeholder-text-light placeholder-opacity-50 dark:placeholder-text-dark/60"
             />
           </div>
           <Button
