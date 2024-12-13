@@ -4,12 +4,14 @@ interface ButtonProps {
   children: React.ReactNode;
   omClick?: () => void;
   styleVariant?: "default" | "nav";
+  className?: string;
 }
 
 const Button = ({
   children,
   omClick,
   styleVariant = "default",
+  className = "",
 }: ButtonProps) => {
   const navStyle =
     "rounded-xl px-2 py-1 md:px-4 md:py-2 bg-teal-600 hover:bg-teal-700 border-2 border-text-light hover:shadow-md hover:md:shadow-lg text-secondary-light  text-sm md:text-md hidden md:block transition-colors duration-20 font-medium";
@@ -20,7 +22,7 @@ const Button = ({
   const buttonStyle = styleVariant === "nav" ? navStyle : defaultStyle;
 
   return (
-    <button className={buttonStyle} onClick={omClick}>
+    <button className={`${buttonStyle} ${className}`} onClick={omClick}>
       {children}
     </button>
   );
