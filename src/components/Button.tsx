@@ -2,14 +2,14 @@ import React from "react";
 
 interface ButtonProps {
   children: React.ReactNode;
-  omClick?: () => void;
+  onClick?: () => void;
   styleVariant?: "default" | "nav";
   className?: string;
 }
 
 const Button = ({
   children,
-  omClick,
+  onClick,
   styleVariant = "default",
   className = "",
 }: ButtonProps) => {
@@ -22,7 +22,7 @@ const Button = ({
   const buttonStyle = styleVariant === "nav" ? navStyle : defaultStyle;
 
   return (
-    <button className={`${buttonStyle} ${className}`} onClick={omClick}>
+    <button className={`${buttonStyle} ${className}`} onClick={onClick}>
       {children}
     </button>
   );
