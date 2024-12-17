@@ -7,6 +7,8 @@ import HamburgerIcon from "./Hamburger";
 import { FaRegMoon } from "react-icons/fa6";
 import { IoSunnyOutline } from "react-icons/io5";
 
+import { ConnectKitButton } from "connectkit";
+
 const NavBar = () => {
   const menuItems = [
     { label: "Home", href: "/" },
@@ -93,7 +95,24 @@ const NavBar = () => {
             )}
           </button>
           <HamburgerIcon />
-          <Button children="Connect Wallet" styleVariant="nav" />
+          <ConnectKitButton.Custom>
+            {({ isConnected, show, address }) => {
+              return (
+                <Button styleVariant="nav" onClick={show}>
+                  {isConnected
+                    ? `${address?.slice(0, 6)}...${address?.slice(-4)}`
+                    : "Connect Wallet"}
+                </Button>
+              );
+            }}
+          </ConnectKitButton.Custom>
+          {/* <Button
+            styleVariant="nav"
+            onClick={() => connect({ connector: injected() })}
+          >
+            {isConnecting ? "Connecting..." : address}
+            {isDisconnected && "Connect Wallet"}
+          </Button> */}
         </div>
       </div>
     </nav>
