@@ -12,11 +12,19 @@ console.log(
 const config = createConfig(
   getDefaultConfig({
     // Your dApps chains
-    chains: [mainnet],
+    chains: [sepolia],
     transports: {
       // RPC URL for each chain
-      [mainnet.id]: http(),
-      [sepolia.id]: http(),
+      [mainnet.id]: http(
+        `eth-mainnet.g.alchemy.com/v2//${
+          import.meta.env.VITE_ALCHEMY_MAINNET_API_KEY
+        }`
+      ),
+      [sepolia.id]: http(
+        `eth-sepolia.g.alchemy.com/v2/${
+          import.meta.env.VITE_ALCHEMY_SEPOLIA_API_KEY
+        }`
+      ),
     },
 
     // Required API Keys
