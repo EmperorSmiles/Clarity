@@ -61,11 +61,12 @@ const DonateBody = () => {
           <div className="flex my-4 gap-1 ">
             <input
               id="ethAmount"
+              type="decimals"
               placeholder="0.1"
               className="bg-transparent border-2 border-teal-600 w-48 h-9 p-3 focus:border-teal-600 placeholder-text-light placeholder-opacity-50 dark:placeholder-text-dark/60 rounded-md"
             />
             <Button className="bg-teal-600 hover:bg-teal-700 w-32 h-9 px-2 py-0 text-white flex items-center justify-center">
-              Fund
+              Donate
             </Button>
           </div>
 
