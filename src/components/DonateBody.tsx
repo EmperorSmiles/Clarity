@@ -50,7 +50,7 @@ const DonateBody = () => {
         </ul>
 
         <section className="flex flex-col gap-4 justify-center items-center py-4">
-          <Button omClick={() => {}}>Connect Wallet</Button>
+          <Button onClick={() => {}}>Connect Wallet</Button>
           <label
             // for="ethAmount"
             className="items-center justify-center"
@@ -70,7 +70,7 @@ const DonateBody = () => {
             </Button>
           </div>
 
-          <Button omClick={() => {}}>See Balance</Button>
+          <Button onClick={() => {}}>See Balance</Button>
         </section>
 
         {/* <p>
