@@ -1,4 +1,5 @@
 import Button from "./Button";
+import { ConnectKitButton } from "connectkit";
 
 const DonateBody = () => {
   return (
@@ -50,7 +51,16 @@ const DonateBody = () => {
         </ul>
 
         <section className="flex flex-col gap-4 justify-center items-center py-4">
-          <Button onClick={() => {}}>Connect Wallet</Button>
+          <ConnectKitButton.Custom>
+            {({ isConnected, show, truncatedAddress }) => {
+              return (
+                <Button onClick={show}>
+                  {isConnected ? truncatedAddress : "Connect Wallet"}
+                </Button>
+              );
+            }}
+          </ConnectKitButton.Custom>
+          {/* <Button onClick={() => {}}>Connect Wallet</Button> */}
           <label
             // for="ethAmount"
             className="items-center justify-center"
