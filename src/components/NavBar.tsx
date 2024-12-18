@@ -96,12 +96,10 @@ const NavBar = () => {
           </button>
           <HamburgerIcon />
           <ConnectKitButton.Custom>
-            {({ isConnected, show, address }) => {
+            {({ isConnected, show, truncatedAddress }) => {
               return (
                 <Button styleVariant="nav" onClick={show}>
-                  {isConnected
-                    ? `${address?.slice(0, 6)}...${address?.slice(-4)}`
-                    : "Connect Wallet"}
+                  {isConnected ? truncatedAddress : "Connect Wallet"}
                 </Button>
               );
             }}
