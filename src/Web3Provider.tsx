@@ -4,11 +4,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ConnectKitProvider, getDefaultConfig } from "connectkit";
 import { useEffect, useState } from "react";
 
-console.log(
-  "WalletConnect Project ID:",
-  import.meta.env.VITE_PUBLIC_WALLETCONNECT_PROJECT_ID
-);
-
 const config = createConfig(
   getDefaultConfig({
     // Your dApps chains
@@ -44,9 +39,24 @@ const config = createConfig(
 const queryClient = new QueryClient();
 
 export const Web3Provider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<"light" | "dark">(() =>
-    document.documentElement.classList.contains("dark") ? "dark" : "light"
-  );
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    // Check localStorage first
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      return savedTheme === "dark" ? "dark" : "light";
+    }
+
+    // Then check system preference
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  });
+
+  useEffect(() => {
+    // Sync theme with document class and localStorage
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     const observer = new MutationObserver((mutations) => {
@@ -73,7 +83,7 @@ export const Web3Provider = ({ children }: { children: React.ReactNode }) => {
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <ConnectKitProvider
-          // customTheme={theme === "dark" ? "dark" : "light"}
+          customTheme={theme === "dark" ? "dark" : "light"}
           mode={theme === "dark" ? "dark" : "light"}
         >
           {children}
