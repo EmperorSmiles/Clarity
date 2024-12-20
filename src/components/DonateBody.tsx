@@ -18,12 +18,21 @@ const DonateBody = () => {
       hash,
     });
 
-  useEffect(() => {
-    if (isConfirmed) {
-      setIsLoading(false);
-      setAmount("");
-    }
-  }, [isConfirmed]);
+  // useEffect(() => {
+  //   if (isConfirmed) {
+  //     setIsLoading(false);
+  //     setAmount("");
+  //     console.log("Transaction confirmed");
+  //   }
+  // }, [isConfirmed]);
+
+  // useEffect(() => {
+  //   if (isConfirmed) {
+  //     setIsLoading(false); // Reset isLoading when the transaction is confirmed
+  //     setAmount(""); // Clear the input field
+  //     console.log("Transaction confirmed");
+  //   }
+  // }, [isConfirmed]);
 
   const handleDonate = async () => {
     try {
@@ -31,17 +40,32 @@ const DonateBody = () => {
 
       const value = parseEther(amount);
 
-      await writeContract({
+      const tx = await writeContract({
         address: CONTRACT_ADDRESS,
-        abi: abi,
+        abi,
         functionName: "fund",
         value,
       });
+
+      console.log("Transaction sent:", tx);
+
+      // Optionally, wait for the transaction to confirm if supported
+      const receipt = await hash;
+      console.log("Transaction successful:", receipt);
     } catch (error) {
       console.error("Error donating:", error);
-      setIsLoading(false);
+    } finally {
+      setIsLoading(false); // Reset loading state
     }
   };
+
+  useEffect(() => {
+    if (isConfirmed) {
+      setIsLoading(false); // Reset loading state
+      setAmount(""); // Clear the input field
+      console.log("Transaction confirmed with hash:", hash);
+    }
+  }, [isConfirmed, hash]);
 
   return (
     <div className="">
