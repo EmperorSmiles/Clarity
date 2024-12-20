@@ -2,7 +2,7 @@ import Button from "./Button";
 import { ConnectKitButton } from "connectkit";
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import { abi } from "../abis/abi.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { parseEther } from "viem";
 
 const CONTRACT_ADDRESS = "0xb2D4304b98a29B358e5BBe33C995486249962D58";
@@ -18,6 +18,13 @@ const DonateBody = () => {
       hash,
     });
 
+  useEffect(() => {
+    if (isConfirmed) {
+      setIsLoading(false);
+      setAmount("");
+    }
+  }, [isConfirmed]);
+
   const handleDonate = async () => {
     try {
       setIsLoading(true);
@@ -30,10 +37,6 @@ const DonateBody = () => {
         functionName: "fund",
         value,
       });
-      // isConfirmed: () => {
-      //   setIsLoading(false);
-      //   setAmount("");
-      // },
     } catch (error) {
       console.error("Error donating:", error);
       setIsLoading(false);
@@ -124,6 +127,12 @@ const DonateBody = () => {
               {isLoading || isConfirming ? "Processing..." : "Donate"}
             </Button>
           </div>
+
+          {isConfirmed && (
+            <p className="text-green-500">
+              Thank you for your donation! Transaction confirmed.
+            </p>
+          )}
 
           <Button onClick={() => {}}>See Balance</Button>
         </section>
