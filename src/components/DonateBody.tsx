@@ -1,71 +1,34 @@
 import Button from "./Button";
 import { ConnectKitButton } from "connectkit";
-import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
+import {
+  type BaseError,
+  useWriteContract,
+  useWaitForTransactionReceipt,
+} from "wagmi";
 import { abi } from "../abis/abi.json";
-import { useEffect, useState } from "react";
-import { parseEther } from "viem";
+import { useState } from "react";
 
 const CONTRACT_ADDRESS = "0xb2D4304b98a29B358e5BBe33C995486249962D58";
 
 const DonateBody = () => {
   const [amount, setAmount] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const { data: hash, isPending, error, writeContract } = useWriteContract();
 
-  const { writeContract, data: hash } = useWriteContract();
+  async function handleDonate(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const ethAmount = parseFloat(amount);
+    writeContract({
+      address: CONTRACT_ADDRESS,
+      abi,
+      functionName: "fund",
+      args: [BigInt(ethAmount)],
+    });
+  }
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
     useWaitForTransactionReceipt({
       hash,
     });
-
-  // useEffect(() => {
-  //   if (isConfirmed) {
-  //     setIsLoading(false);
-  //     setAmount("");
-  //     console.log("Transaction confirmed");
-  //   }
-  // }, [isConfirmed]);
-
-  // useEffect(() => {
-  //   if (isConfirmed) {
-  //     setIsLoading(false); // Reset isLoading when the transaction is confirmed
-  //     setAmount(""); // Clear the input field
-  //     console.log("Transaction confirmed");
-  //   }
-  // }, [isConfirmed]);
-
-  const handleDonate = async () => {
-    try {
-      setIsLoading(true);
-
-      const value = parseEther(amount);
-
-      const tx = await writeContract({
-        address: CONTRACT_ADDRESS,
-        abi,
-        functionName: "fund",
-        value,
-      });
-
-      console.log("Transaction sent:", tx);
-
-      // Optionally, wait for the transaction to confirm if supported
-      const receipt = await hash;
-      console.log("Transaction successful:", receipt);
-    } catch (error) {
-      console.error("Error donating:", error);
-    } finally {
-      setIsLoading(false); // Reset loading state
-    }
-  };
-
-  useEffect(() => {
-    if (isConfirmed) {
-      setIsLoading(false); // Reset loading state
-      setAmount(""); // Clear the input field
-      console.log("Transaction confirmed with hash:", hash);
-    }
-  }, [isConfirmed, hash]);
 
   return (
     <div className="">
@@ -133,7 +96,7 @@ const DonateBody = () => {
             ETH Amount
           </label>
 
-          <div className="flex my-4 gap-1 ">
+          <form className="flex my-4 gap-1" onSubmit={handleDonate}>
             <input
               id="ethAmount"
               type="number"
@@ -145,18 +108,22 @@ const DonateBody = () => {
             />
             <Button
               className="bg-teal-600 hover:bg-teal-700 w-32 h-9 px-2 py-0 text-white flex items-center justify-center"
-              onClick={handleDonate}
-              disabled={!amount || isLoading || isConfirming}
+              disabled={isPending}
             >
-              {isLoading || isConfirming ? "Processing..." : "Donate"}
+              {isPending ? "Confirming..." : "Donate"}
             </Button>
-          </div>
 
-          {isConfirmed && (
-            <p className="text-green-500">
-              Thank you for your donation! Transaction confirmed.
-            </p>
-          )}
+            {hash && <div>Transaction Hash: {hash}</div>}
+            {isConfirming && <div>Waiting for confirmation...</div>}
+            {isConfirmed && (
+              <div>Transaction confirmed. Thanks for your Donation</div>
+            )}
+            {error && (
+              <div>
+                Error: {(error as BaseError).shortMessage || error.message}
+              </div>
+            )}
+          </form>
 
           <Button onClick={() => {}}>See Balance</Button>
         </section>
