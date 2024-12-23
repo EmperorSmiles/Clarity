@@ -118,7 +118,7 @@ const Hero: React.FC<HeroProps> = ({
                 Mental Health.
               </em>
             </p>
-            <Button omClick={() => {}} children="Get Involved" />
+            <Button onClick={() => {}} children="Get Involved" />
           </div>
         </div>
       </div>
