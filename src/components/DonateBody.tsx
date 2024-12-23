@@ -6,9 +6,10 @@ import {
   useWaitForTransactionReceipt,
 } from "wagmi";
 import { abi } from "../abis/abi.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { parseEther } from "viem";
 
-const CONTRACT_ADDRESS = "0xb2D4304b98a29B358e5BBe33C995486249962D58";
+const CONTRACT_ADDRESS = import.meta.env.VITE_CONTRACT_ADDRESS;
 
 const DonateBody = () => {
   const [amount, setAmount] = useState("");
@@ -16,12 +17,12 @@ const DonateBody = () => {
 
   async function handleDonate(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const ethAmount = parseFloat(amount);
+    const ethAmount = parseEther(amount);
     writeContract({
       address: CONTRACT_ADDRESS,
-      abi,
+      abi: abi,
       functionName: "fund",
-      args: [BigInt(ethAmount)],
+      value: ethAmount,
     });
   }
 
@@ -29,6 +30,12 @@ const DonateBody = () => {
     useWaitForTransactionReceipt({
       hash,
     });
+
+  useEffect(() => {
+    if (isConfirming) {
+      setAmount("");
+    }
+  }, [isConfirming]);
 
   return (
     <div className="">
@@ -95,8 +102,7 @@ const DonateBody = () => {
           >
             ETH Amount
           </label>
-
-          <form className="flex my-4 gap-1" onSubmit={handleDonate}>
+          <form className="flex mt-4 mb-0 gap-1" onSubmit={handleDonate}>
             <input
               id="ethAmount"
               type="number"
@@ -112,19 +118,31 @@ const DonateBody = () => {
             >
               {isPending ? "Confirming..." : "Donate"}
             </Button>
-
-            {hash && <div>Transaction Hash: {hash}</div>}
-            {isConfirming && <div>Waiting for confirmation...</div>}
-            {isConfirmed && (
-              <div>Transaction confirmed. Thanks for your Donation</div>
-            )}
-            {error && (
-              <div>
-                Error: {(error as BaseError).shortMessage || error.message}
-              </div>
-            )}
           </form>
-
+          {hash && (
+            <div>
+              <p>Transaction might take some time </p>
+              <a
+                href={`https://sepolia.etherscan.io/tx/${hash}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                View on Etherscan
+              </a>
+            </div>
+          )}
+          {isConfirming && <div>Waiting for confirmation...</div>}
+          {isConfirmed && (
+            <div className="text-green-600">
+              Transaction confirmed! Thanks for your Donation!
+            </div>
+          )}
+          {error && (
+            <div className="text-red-500">
+              Error: {(error as BaseError).shortMessage || error.message}
+            </div>
+          )}
           <Button onClick={() => {}}>See Balance</Button>
         </section>
 
