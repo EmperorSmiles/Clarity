@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 type Media = {
   type: "image" | "video";
@@ -20,6 +21,8 @@ const Hero: React.FC<HeroProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -118,7 +121,11 @@ const Hero: React.FC<HeroProps> = ({
                 Mental Health.
               </em>
             </p>
-            <Button onClick={() => {}} children="Get Involved" />
+            <Button
+              children="Get Started"
+              onClick={() => navigate("/donate")}
+              styleVariant="default"
+            />
           </div>
         </div>
       </div>
