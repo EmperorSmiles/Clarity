@@ -8,23 +8,73 @@ import {
 import { abi } from "../abis/abi.json";
 import { useEffect, useState } from "react";
 import { parseEther } from "viem";
+import axios from "axios";
 
 const CONTRACT_ADDRESS = import.meta.env.VITE_CONTRACT_ADDRESS;
 
 const DonateBody = () => {
   const [amount, setAmount] = useState("");
+  const [ethPrice, setEthPrice] = useState<number | null>(null);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [usdValue, setUsdValue] = useState<string | null>(null);
   const { data: hash, isPending, error, writeContract } = useWriteContract();
 
-  async function handleDonate(e: React.FormEvent<HTMLFormElement>) {
+  const fetchEthPriceInUSD = async () => {
+    try {
+      const response = await axios.get(
+        "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"
+      );
+      const price = response.data.ethereum.usd;
+      setEthPrice(price);
+    } catch (error) {
+      console.error("Error fetching ETH price", error);
+      setErrorMessage("Unable to fetch ETH price.");
+    }
+  };
+
+  useEffect(() => {
+    fetchEthPriceInUSD();
+  }, []);
+
+  const validateAmount = (value: string) => {
+    const numericValue = parseFloat(value);
+    if (isNaN(numericValue) || numericValue <= 0) {
+      setErrorMessage("Please enter a valid positive number.");
+      return false;
+    }
+    if (ethPrice && numericValue * ethPrice < 5) {
+      setErrorMessage("Minimum donation is $5 worth of ETH.");
+      return false;
+    }
+    setErrorMessage("");
+    return true;
+  };
+
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setAmount(value);
+    validateAmount(value);
+
+    // Calculate USD value if ETH price is available
+    if (ethPrice && value) {
+      const ethAmount = parseFloat(value);
+      const usdEquivalent = ethAmount * ethPrice;
+      setUsdValue(usdEquivalent.toFixed(2)); // Set the USD equivalent value (2 decimals)
+    }
+  };
+
+  const handleDonate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const ethAmount = parseEther(amount);
-    writeContract({
-      address: CONTRACT_ADDRESS,
-      abi: abi,
-      functionName: "fund",
-      value: ethAmount,
-    });
-  }
+    if (validateAmount(amount)) {
+      const ethAmount = parseEther(amount);
+      writeContract({
+        address: CONTRACT_ADDRESS,
+        abi: abi, // Ensure the correct ABI is imported
+        functionName: "fund",
+        value: ethAmount,
+      });
+    }
+  };
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
     useWaitForTransactionReceipt({
@@ -88,18 +138,29 @@ const DonateBody = () => {
             id="ethAmount"
             type="number"
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={handleAmountChange}
             required
             placeholder="0.1"
             className="bg-transparent border-2 border-teal-600 w-48 h-9 p-3 focus:border-teal-600 placeholder-text-light placeholder-opacity-50 dark:placeholder-text-dark/60 rounded-md"
           />
           <Button
             className="bg-teal-600 hover:bg-teal-700 w-32 h-9 px-2 py-0 text-white flex items-center justify-center"
-            disabled={isPending}
+            disabled={!!errorMessage || !amount}
           >
             {isPending ? "Confirming..." : "Donate"}
           </Button>
         </form>
+
+        {/* Show USD equivalent */}
+        {usdValue && (
+          <p className="text-teal-600 mt-2">
+            Approximate value: ${usdValue} USD
+          </p>
+        )}
+
+        {/* Show error message */}
+        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+
         {hash && (
           <div className="flex flex-col items-center gap-3 text-center">
             {isConfirming ? (
