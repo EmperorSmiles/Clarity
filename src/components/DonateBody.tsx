@@ -39,7 +39,7 @@ const DonateBody = () => {
   const validateAmount = (value: string) => {
     const numericValue = parseFloat(value);
     if (isNaN(numericValue) || numericValue <= 0) {
-      setErrorMessage("Please enter a valid positive number.");
+      setErrorMessage("Please enter a valid number.");
       return false;
     }
     if (ethPrice && numericValue * ethPrice < 5) {
