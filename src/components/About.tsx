@@ -3,8 +3,11 @@ import alley from "../assets/Health/Dark Alley.jpg";
 import Yoga from "../assets/Health/Yoga.jpg";
 import Hiking from "../assets/Health/Hiking.jpg";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="tracking-wide leading-relaxed text-text-light dark:text-text-dark/80 transition all duration-1000 ease-in-out">
@@ -107,7 +110,7 @@ const About = () => {
       </p>
       <Button
         children="Get Started"
-        omClick={() => {}}
+        onClick={() => navigate("/donate")}
         styleVariant="default"
       />
       <div className="my-8 h-0.5 bg-secondary-dark dark:bg-secondary-light opacity-30 mx-auto w-3/4"></div>
