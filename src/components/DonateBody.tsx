@@ -39,10 +39,10 @@ const DonateBody = () => {
   const validateAmount = (value: string) => {
     const numericValue = parseFloat(value);
     if (isNaN(numericValue) || numericValue <= 0) {
-      setErrorMessage("Please enter a valid number.");
+      setErrorMessage("Please enter a valid amount.");
       return false;
     }
-    if (ethPrice && numericValue * ethPrice < 5) {
+    if (ethPrice && numericValue * ethPrice <= 5) {
       setErrorMessage("Minimum donation is $5 worth of ETH.");
       return false;
     }
@@ -59,7 +59,7 @@ const DonateBody = () => {
     if (ethPrice && value) {
       const ethAmount = parseFloat(value);
       const usdEquivalent = ethAmount * ethPrice;
-      setUsdValue(usdEquivalent.toFixed(2)); // Set the USD equivalent value (2 decimals)
+      setUsdValue(formatNumberWithCommas(usdEquivalent)); // Set the USD equivalent value (2 decimals)
     }
   };
 
@@ -80,6 +80,10 @@ const DonateBody = () => {
     useWaitForTransactionReceipt({
       hash,
     });
+
+  const formatNumberWithCommas = (num: number): string => {
+    return new Intl.NumberFormat().format(num);
+  };
 
   useEffect(() => {
     if (isConfirming) {
@@ -144,7 +148,11 @@ const DonateBody = () => {
             className="bg-transparent border-2 border-teal-600 w-48 h-9 p-3 focus:border-teal-600 placeholder-text-light placeholder-opacity-50 dark:placeholder-text-dark/60 rounded-md"
           />
           <Button
-            className="bg-teal-600 hover:bg-teal-700 w-32 h-9 px-2 py-0 text-white flex items-center justify-center"
+            className={`bg-teal-600 hover:bg-teal-700 w-32 h-9 px-2 py-0 text-white flex items-center justify-center ${
+              !!errorMessage || !amount
+                ? "hover:opacity-60 cursor-not-allowed"
+                : ""
+            }`}
             disabled={!!errorMessage || !amount}
           >
             {isPending ? "Confirming..." : "Donate"}
@@ -152,11 +160,7 @@ const DonateBody = () => {
         </form>
 
         {/* Show USD equivalent */}
-        {usdValue && (
-          <p className="text-teal-600 mt-2">
-            Approximate value: ${usdValue} USD
-          </p>
-        )}
+        {usdValue && <p className="text-teal-600">≈ ${usdValue} USD</p>}
 
         {/* Show error message */}
         {errorMessage && <p className="text-red-500">{errorMessage}</p>}
@@ -165,8 +169,9 @@ const DonateBody = () => {
           <div className="flex flex-col items-center gap-3 text-center">
             {isConfirming ? (
               <div className="flex items-center gap-2 text-yellow-600 dark:text-yellow-400">
-                <span className="animate-pulse">●</span>
-                Processing your donation...
+                <span className="animate-pulse">
+                  ● Processing your donation...
+                </span>
               </div>
             ) : isConfirmed ? (
               <div className="space-y-2">
