@@ -9,14 +9,13 @@ const config = createConfig(
     // Your dApps chains
     chains: [sepolia],
     transports: {
-      // RPC URL for each chain
       [mainnet.id]: http(
-        `eth-mainnet.g.alchemy.com/v2//${
+        `https://eth-mainnet.g.alchemy.com/v2/${
           import.meta.env.VITE_ALCHEMY_MAINNET_API_KEY
         }`
       ),
       [sepolia.id]: http(
-        `eth-sepolia.g.alchemy.com/v2/${
+        `https://eth-sepolia.g.alchemy.com/v2/${
           import.meta.env.VITE_ALCHEMY_SEPOLIA_API_KEY
         }`
       ),
@@ -33,6 +32,7 @@ const config = createConfig(
     appDescription: "Your App Description",
     appUrl: "https://family.co", // your app's url
     appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
+    pollingInterval: 10000,
   })
 );
 
