@@ -4,10 +4,11 @@ import {
   type BaseError,
   useWriteContract,
   useWaitForTransactionReceipt,
+  useBalance,
 } from "wagmi";
 import { abi } from "../abis/abi.json";
 import { useEffect, useState } from "react";
-import { parseEther } from "viem";
+import { formatEther, parseEther } from "viem";
 import axios from "axios";
 
 const CONTRACT_ADDRESS = import.meta.env.VITE_CONTRACT_ADDRESS;
@@ -18,6 +19,7 @@ const DonateBody = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [usdValue, setUsdValue] = useState<string | null>(null);
   const { data: hash, isPending, error, writeContract } = useWriteContract();
+  const [showBalance, setShowBalance] = useState(false);
 
   const fetchEthPriceInUSD = async () => {
     try {
@@ -90,6 +92,14 @@ const DonateBody = () => {
       setAmount("");
     }
   }, [isConfirming]);
+
+  const {
+    data: balance,
+    isError: balanceError,
+    isLoading: balanceLoading,
+  } = useBalance({
+    address: CONTRACT_ADDRESS,
+  });
 
   return (
     <div className="h-full text-text-light dark:text-text-dark text-center text-lg md:text-xl py-8 px-4 bg-background-light dark:bg-background-dark transition-colors duration-1000 ease-in-out">
@@ -196,7 +206,26 @@ const DonateBody = () => {
             ) : null}
           </div>
         )}
-        <Button onClick={() => {}}>See Balance</Button>
+        <Button onClick={() => setShowBalance(!showBalance)}>
+          {showBalance ? "Hide Balance" : "See Balance"}
+        </Button>
+
+        {showBalance && (
+          <div className="">
+            {balanceLoading ? (
+              <p>Loading balance...</p>
+            ) : balanceError ? (
+              <p className="text-red-500">Error fetching balance</p>
+            ) : (
+              <p className="text-teal-600">
+                We've currently have a balance of{" "}
+                <em className="font-bold">
+                  {balance ? formatEther(balance.value) : "0"} ETH
+                </em>
+              </p>
+            )}
+          </div>
+        )}
       </section>
     </div>
   );
