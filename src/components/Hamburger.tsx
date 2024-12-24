@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React from "react";
-=======
-import { useState } from "react";
->>>>>>> 6a87f3e1f8b25107b221fec4b2089fa3f0279db3
+// import { useState } from "react";
 
 interface HamburgerIconProps {
   isOpen: boolean; // External state to control the icon
