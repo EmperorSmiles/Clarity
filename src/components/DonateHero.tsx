@@ -24,7 +24,7 @@ const DonateHero = () => {
           </em>{" "}
           the way.
         </h1>
-        <p className="max-w-2xl text-lg md:text-xl">
+        <p className="max-w-2xl text-sm md:text-xl">
           Every donation, no matter the size, brings us closer to a brighter
           future. You're making a difference.
         </p>
