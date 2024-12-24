@@ -1,6 +1,6 @@
 import Hero from "../components/Hero";
 import heroVideo1 from "../assets/Health/HeroVideo.mp4";
-import heroVideo2 from "../assets/Health/HeroVIdeo2.mp4";
+import HeroVIdeo2 from "../assets/Health/HeroVIdeo2.mp4";
 import heroImage1 from "../assets/Health/Hero.jpg";
 import heroImage2 from "../assets/Health/Hero2.jpg";
 import videoFallback from "../assets/Health/Hero2.jpg";
@@ -18,7 +18,7 @@ const HomePage: React.FC = () => {
     },
     {
       type: "video" as const,
-      url: heroVideo2,
+      url: HeroVIdeo2,
     },
     {
       type: "image" as const,
