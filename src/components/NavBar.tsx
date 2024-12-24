@@ -12,9 +12,9 @@ import { ConnectKitButton } from "connectkit";
 const NavBar: React.FC = () => {
   const menuItems = [
     { label: "Home", href: "/" },
-    { label: "Legal", href: "/legal" },
     { label: "Donate", href: "/donate" },
-    { label: "Contact", href: "/#contact" },
+    { label: "Legal", href: "/legal" },
+    // { label: "Contact", href: "/#contact" },
   ];
 
   const [scrolled, setScrolled] = useState(false);
@@ -57,7 +57,7 @@ const NavBar: React.FC = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <ul className="md:flex space-x-6 text-sm md:text-xl hidden font-medium">
+          <ul className="lg:flex space-x-6 text-sm md:text-xl hidden font-medium">
             {menuItems.map((item, index) => (
               <li key={index}>
                 <Link
@@ -82,9 +82,9 @@ const NavBar: React.FC = () => {
               className="ml-4 p-2 rounded-full transition-all duration-1000 ease-in-out"
             >
               {isDarkMode ? (
-                <IoSunnyOutline size={30} />
+                <IoSunnyOutline size={20} />
               ) : (
-                <FaRegMoon size={30} />
+                <FaRegMoon size={20} />
               )}
             </button>
 
