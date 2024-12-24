@@ -10,7 +10,7 @@ const Legal = () => {
           className="w-full h-full object-cover"
         />
         {/* Dark overlay to improve text readability */}
-        <div className="absolute inset-0 bg-black/80 dark:bg-black/90 z-10"></div>
+        <div className="absolute inset-0 bg-black/50 dark:bg-black/80 transition all duration-1000 ease-in-out z-10"></div>
       </div>
       <div className="relative ">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">
