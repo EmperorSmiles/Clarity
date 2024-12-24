@@ -57,7 +57,7 @@ const NavBar: React.FC = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <ul className="lg:flex space-x-10 text-sm md:text-xl hidden font-medium">
+          <ul className="lg:flex space-x-10 text-sm md:text-xl hidden font-medium ml-16">
             {menuItems.map((item, index) => (
               <li key={index}>
                 <Link
@@ -79,7 +79,7 @@ const NavBar: React.FC = () => {
             <button
               onClick={toggleTheme}
               aria-label="Toggle dark mode"
-              className=" p-2 rounded-full transition-all duration-1000 ease-in-out"
+              className="ml-4 p-2 rounded-full transition-all duration-1000 ease-in-out"
             >
               {isDarkMode ? (
                 <IoSunnyOutline size={20} />
