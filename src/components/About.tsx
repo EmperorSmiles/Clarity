@@ -10,7 +10,7 @@ const About = () => {
 
   return (
     <>
-      <div className="tracking-wide leading-relaxed text-text-light dark:text-text-dark/80 transition all duration-1000 ease-in-out">
+      <div className="tracking-wide leading-relaxed text-text-light dark:text-text-dark/80 transition all duration-1000 ease-in-out text-sm md:text-xl">
         <p>
           Clarity is a beacon of hope for those navigating the complexities of
           mental health.
@@ -26,7 +26,7 @@ const About = () => {
       <h1 className="text-2xl md:text-4xl mb-4 font-semibold text-text-light dark:text-text-dark/80 transition all duration-1000 ease-in-out">
         Our Mission
       </h1>
-      <div className="text-left tracking-wide text-text-light dark:text-text-dark/80 transition all duration-1000 ease-in-out">
+      <div className="text-left tracking-wide text-text-light dark:text-text-dark/80 transition all duration-1000 ease-in-out text-sm md:text-xl">
         <p>
           At Clarity, we believe that everyone deserves access to quality mental
           health support.
@@ -86,7 +86,7 @@ const About = () => {
       <h2 className="text-2xl md:text-4xl mb-4 font-semibold text-text-light dark:text-text-dark/80 transition all duration-1000 ease-in-out">
         Your Impact Matters{" "}
       </h2>
-      <p className="text-text-light dark:text-text-dark/80 mb-8 transition all duration-1000 ease-in-out">
+      <p className="text-text-light dark:text-text-dark/80 mb-8 transition all duration-1000 ease-in-out text-sm md:text-xl">
         Your generous donation will help us provide{" "}
         <em className="font-semibold text-teal-600">
           affordable therapy sessions
