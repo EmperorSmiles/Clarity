@@ -9,7 +9,7 @@ const HamburgerIcon: React.FC<HamburgerIconProps> = ({ isOpen, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className="relative w-6 h-5 focus:outline-none mr-8 md:hidden"
+      className="relative w-6 h-5 focus:outline-none mr-8 lg:hidden"
       aria-label={isOpen ? "Close menu" : "Open menu"}
     >
       <span
