@@ -45,7 +45,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary-light dark:bg-background-dark/90  font-vietnam transition-all duration-500 ease-in-out ">
+    <footer className="bg-primary-light dark:bg-background-dark/90  font-vietnam transition-all duration-500 ease-in-out text-xs md:text-sm">
       <div className="md:grid md:grid-cols-2 lg:flex justify-between p-8 lg:p-8 text-text-light">
         <ul className="mb-4 dark:text-text-dark/80">
           <li className="font-bold pb-1 ">COMPANY</li>
