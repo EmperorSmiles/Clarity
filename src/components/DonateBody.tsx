@@ -114,7 +114,7 @@ const DonateBody = () => {
         How to contribute
       </h2>
       <ul className="md:list-disc list-inside text-sm md:text-xl">
-        <li className="text-left ">
+        <li className="">
           <em className="text-teal-600">Step 1:</em> Connect your Wallet
           <ul className="text-xs md:text-base md:pl-8">
             <li>We recommend using a separate account for this</li>
