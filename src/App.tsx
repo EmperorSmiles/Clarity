@@ -6,16 +6,20 @@ import DonatePage from "./pages/DonatePage";
 // import Body from "./components/Body";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import MobileAlertModal from "./components/MobileAlertModal";
+import Legal from "./pages/Legal";
 
 const App: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
+      <MobileAlertModal />
       <div className="font-vietnam">
         <NavBar />
       </div>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/legal" element={<Legal />} />
         <Route path="/donate" element={<DonatePage />} />
       </Routes>
       <Footer />
