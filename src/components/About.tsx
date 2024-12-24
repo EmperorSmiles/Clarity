@@ -103,10 +103,10 @@ const About = () => {
         <em className="font-semibold text-teal-600">community</em> of people who
         need mental health support as well as those who look after them.
         <br /> <br />
-        <p>
+        <span>
           We're building a{" "}
           <em className="font-semibold text-teal-600 uppercase">Community!</em>
-        </p>
+        </span>
       </p>
       <Button
         children="Get Started"
