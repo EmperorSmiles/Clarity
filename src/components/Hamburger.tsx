@@ -1,19 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface HamburgerIconProps {
+  isOpen: boolean; // External state to control the icon
   onClick?: () => void;
 }
-const HamburgerIcon = ({ onClick }: HamburgerIconProps) => {
-  const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-    onClick?.(); /// Apparently, I can;t use onClick && onClick(); here because of EsLint rules
-  };
-
+const HamburgerIcon: React.FC<HamburgerIconProps> = ({ isOpen, onClick }) => {
   return (
     <button
-      onClick={handleClick}
+      onClick={onClick}
       className="relative w-6 h-5 focus:outline-none mr-8 md:hidden"
       aria-label={isOpen ? "Close menu" : "Open menu"}
     >
