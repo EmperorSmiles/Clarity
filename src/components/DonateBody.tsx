@@ -102,31 +102,35 @@ const DonateBody = () => {
   });
 
   return (
-    <div className="h-full text-text-light dark:text-text-dark text-center text-lg md:text-xl py-8 px-4 bg-background-light dark:bg-background-dark transition-colors duration-1000 ease-in-out">
+    <div className="h-full text-text-light dark:text-text-dark md:text-center text-lg md:text-xl py-8 px-4 bg-background-light dark:bg-background-dark transition-colors duration-1000 ease-in-out">
       <h2 className="text-2xl md:text-4xl mb-4 font-semibold">
         Every Contribution Matters
       </h2>
-      <p>Mental health isn't a luxury—it's a fundamental human right.</p>
+      <p className="text-sm md:text-xl mb-4">
+        Mental health isn't a luxury—it's a fundamental human right.
+      </p>
       <div className="my-2 md:my-4 h-0.5 bg-secondary-dark dark:bg-secondary-light opacity-30 mx-auto w-3/4"></div>
       <h2 className="text-xl md:text-2xl mb-2 md:mb-4 font-semibold">
         How to contribute
       </h2>
-      <ul className="list-disc list-inside">
-        <li>
+      <ul className="md:list-disc list-inside text-sm md:text-xl">
+        <li className="text-left ">
           <em className="text-teal-600">Step 1:</em> Connect your Wallet
-          <ul className="text-base pl-8">
+          <ul className="text-xs md:text-base md:pl-8">
             <li>We recommend using a separate account for this</li>
           </ul>
         </li>
-        <li>
+        <li className="pt-2 md:pt-4">
           <em className="text-teal-600">Step 2:</em> Enter your donation amount.
           Sepolia ETH
         </li>
-        <li>
+        <li className="pt-2 md:pt-4">
           <em className="text-teal-600">Step 3:</em> Confirm the transaction
-          <ul className="text-base pl-8">
-            <li>You can choose to also see the transaction on Etherscan</li>
-            <li>
+          <ul className="md:pl-8 text-xs md:text-base">
+            <li className="pt-2 md:pt-4">
+              You can choose to also see the transaction on Etherscan
+            </li>
+            <li className="pt-2 md:pt-4">
               You can check the total balance of the contract using the See
               Balance button.
             </li>
@@ -134,9 +138,10 @@ const DonateBody = () => {
         </li>
       </ul>
       <div className="my-2 md:my-4 h-0.5 bg-secondary-dark dark:bg-secondary-light opacity-30 mx-auto w-3/4"></div>
-      <p className="mt-2 text-base">
-        We are transparent with all donations received hence the reason why all
-        donations are made in Crypto (Sepolia ETH).
+      <p className="mt-2 text-sm md:text-base">
+        Before you proceed, kindly note that this is just for demonstration
+        purposes. Kindly ensure you have Sepolia ETH in your wallet before
+        proceeding.
       </p>
       <section className="flex flex-col gap-4 justify-center items-center py-4">
         <ConnectKitButton.Custom>
