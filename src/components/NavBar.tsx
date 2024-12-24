@@ -41,7 +41,7 @@ const NavBar: React.FC = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-10 font-vietnam transition-all duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 right-0 z-10 font-vietnam transition-all px-4 duration-300 ease-in-out ${
           scrolled
             ? "bg-primary-light dark:bg-primary-dark dark:text-text-dark text-text-light shadow-md py-2 opacity-100"
             : "bg-transparent text-text-dark py-4 opacity-90"
