@@ -5,10 +5,12 @@ import HomePage from "./pages/HomePage";
 import DonatePage from "./pages/DonatePage";
 // import Body from "./components/Body";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App: React.FC = () => {
   return (
     <Router>
+      <ScrollToTop />
       <div className="font-vietnam">
         <NavBar />
       </div>
