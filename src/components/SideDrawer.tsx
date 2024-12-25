@@ -29,7 +29,7 @@ const SideDrawer: React.FC<SideDrawerProps> = ({
         }`}
       >
         {/* Menu Items */}
-        <ul className="space-y-6 text-2xl md:text-3xl mt-9">
+        <ul className="space-y-6 text-xl md:text-3xl mt-9">
           {menuItems.map((item, index) => (
             <li key={index}>
               <Link
