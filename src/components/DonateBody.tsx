@@ -116,11 +116,6 @@ const DonateBody = () => {
       <ul className="md:list-disc list-inside text-sm md:text-xl">
         <li className="">
           <em className="text-teal-600">Step 1:</em> Connect your Wallet
-          <ul className="text-xs md:text-base md:pl-8">
-            <li>
-              We recommend using a separate account for this demonstration
-            </li>
-          </ul>
         </li>
         <li className="pt-2 md:pt-4">
           <em className="text-teal-600">Step 2:</em> Enter your donation amount.
