@@ -63,25 +63,21 @@ const About = () => {
           src={sad}
           alt="Sad Man"
           className="h-40 w-32 md:h-80 md:w-64 rounded-md"
-          loading="lazy"
         />
         <img
           src={Yoga}
           alt="Man in a Yoga Pose"
           className="h-40 w-32 md:h-80 rounded-md  md:w-64"
-          loading="lazy"
         />
         <img
           src={alley}
           alt="Man in a dark alley"
           className="h-40 w-32 md:h-80 rounded-md  md:w-64"
-          loading="lazy"
         />
         <img
           src={Hiking}
           alt="Lady Hiking"
           className="h-40 w-32 md:h-80 rounded-md md:w-64"
-          loading="lazy"
         />
       </div>
 
